@@ -1,7 +1,5 @@
 package com.weather.application;
 
-import java.util.Scanner;
-
 public class LocationService {
 
     LocationRepository locationRepository = new LocationRepository();
@@ -23,7 +21,9 @@ public class LocationService {
             throw new RuntimeException("Nazwa panstwa nie moze byc pusta");
         }
 
-        return new Location(cityName, Double.parseDouble(longitude), Double.parseDouble(latitude), region, country);
+        Location location = new Location(cityName, Double.parseDouble(longitude), Double.parseDouble(latitude), region, country);
+
+        return locationRepository.saveNewEntry(location);
 
         // todo create new method
         // todo valid (check values) a input data

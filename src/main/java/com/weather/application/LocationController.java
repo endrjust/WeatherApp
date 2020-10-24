@@ -13,9 +13,6 @@ public class LocationController {
     public String saveNewLocation(String cityName, String longitude, String latitude, String region, String country) {
         Location location = locationService.addNewLocation(cityName, longitude, latitude, region, country);
         return location.toString();
-
-        // todo use LocationService to pass a data and receive a domain object eg. Location
-        // todo map (translate) a Weather object to String by using objectMapper
-
+        // todo map (translate) a Location object to String by using objectMapper
     }
 }

@@ -1,7 +1,5 @@
 package com.weather.client;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-import com.weather.application.Location;
 import com.weather.application.LocationController;
 
 import java.util.Scanner;
@@ -36,7 +34,7 @@ public class ConsoleClient {
         String longitude = "51.5";
         String latitude = "-0.11";
         String country = "UK";
-        String region = null;
+        String region = "region";
 
         String response = locationController.saveNewLocation(cityName, longitude, latitude, region, country);
 
