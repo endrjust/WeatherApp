@@ -40,13 +40,21 @@ class LocationServiceTest {
     void addNewLocation_whenCityIsEmpty_shouldTrowException() {
         // when
         assertThrows(Exception.class, () -> locationService.addNewLocation(" ", "10", "20", "region", "country"));
-
-        // todo tip isEmpty vs isBlank
     }
 
     @Test
     void addNewLocation_whenCountryIsEmpty_shouldTrowException() {
         // when
         assertThrows(Exception.class, () -> locationService.addNewLocation("city", "10", "20", "region", " "));
+    }
+
+    @Test
+    void addNewLocationWhenLongitudeIsAbove180_ShouldThrowException() {
+        assertThrows(Exception.class, () -> locationService.addNewLocation("city", "181", "20", "region", "PL"));
+    }
+
+    @Test
+    void addNewLocationWhenLongitudeIsString_ShouldThrowException() {
+        assertThrows(Exception.class, () -> locationService.addNewLocation("city", "asd", "20", "region", "PL"));
     }
 }
